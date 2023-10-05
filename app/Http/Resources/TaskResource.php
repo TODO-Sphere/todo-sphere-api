@@ -19,7 +19,7 @@ class TaskResource extends JsonResource
         return [
             'code' => $this->code,
             'name' => $this->name,
-            'is_closed' => $this->is_closed,
+            'is_closed' => (bool) $this->is_closed,
         ];
     }
 }

@@ -9,9 +9,9 @@ COPY . /app
 
 RUN composer install
 
-RUN mkdir -p /app/storage
-RUN touch /app/storage/database.sqlite
-RUN chmod 664 /app/storage/database.sqlite
+RUN mkdir -p /app/database
+RUN touch /app/database/database.sqlite
+RUN chmod 664 /app/database/database.sqlite
 RUN cp .env.example .env
 
 RUN php artisan migrate

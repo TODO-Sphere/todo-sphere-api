@@ -3,14 +3,13 @@
 namespace App\Commands;
 
 use App\Models\Task;
-use App\Http\Resources\TaskResource;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use App\Http\Resources\TaskCollection;
 
 trait TaskListAll
 {
-    public function listAllTasks(): AnonymousResourceCollection
+    public function listAllTasks(): TaskCollection
     {
         $tasks = Task::all();
-        return TaskResource::collection($tasks);
+        return new TaskCollection($tasks);
     }
 }

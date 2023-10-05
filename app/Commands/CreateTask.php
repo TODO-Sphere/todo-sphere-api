@@ -3,11 +3,12 @@
 namespace App\Commands;
 
 use App\Models\Task;
+use App\Http\Resources\TaskResource;
 use Illuminate\Support\Str;
 
 trait CreateTask
 {
-    public function createTak(string $name): Task
+    public function createTak(string $name): TaskResource
     {
         $task = new Task();
 
@@ -17,6 +18,6 @@ trait CreateTask
 
         $task->save();
 
-        return $task;
+        return new TaskResource($task);
     }
 }
