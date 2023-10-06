@@ -12,6 +12,7 @@ trait CloseTask
         $task = Task::where('code', $code)->firstOrFail();
 
         $task->is_closed = true;
+        $task->save();
 
         return new TaskResource($task);
     }
